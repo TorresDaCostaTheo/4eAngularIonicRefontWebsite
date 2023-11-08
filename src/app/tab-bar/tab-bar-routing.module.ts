@@ -54,6 +54,10 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'panier',
+        loadChildren: () => import('../panier/panier.module').then( m => m.PanierPageModule)
+      },
+      {
         path: '',
         redirectTo:'produits',
         pathMatch:'full'
