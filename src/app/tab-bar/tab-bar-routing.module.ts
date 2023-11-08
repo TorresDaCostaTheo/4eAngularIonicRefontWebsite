@@ -55,8 +55,22 @@ const routes: Routes = [
       },
       {
         path: 'panier',
-        loadChildren: () => import('../panier/panier.module').then( m => m.PanierPageModule)
-      },
+        children: [
+          {
+          path: '',
+          loadChildren: () => import('../panier/panier.module').then( m => m.PanierPageModule)
+        }
+      ]
+      },{
+        path: 'list-product',
+        children:[
+          {
+            path:'',
+            loadChildren: () => import('../list-product/list-product.module').then( m => m.ListProductPageModule)
+          }
+        ]}
+      ,
+    
       {
         path: '',
         redirectTo:'produits',
