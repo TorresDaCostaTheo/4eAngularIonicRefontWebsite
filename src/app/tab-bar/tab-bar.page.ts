@@ -13,3 +13,4 @@ export class TabBarPage implements OnInit {
   }
 
 }
+
