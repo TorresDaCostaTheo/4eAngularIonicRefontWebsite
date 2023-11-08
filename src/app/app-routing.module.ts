@@ -7,6 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./tab-bar/tab-bar.module').then( m => m.TabBarPageModule)
   },
 
+
 ];
 
 @NgModule({

@@ -10,24 +10,48 @@ const routes: Routes = [
     children: [
       {
         path:'produits',
-        children:[]
+        children:[
+          {
+            path:'',
+            loadChildren: () => import('../produits/produits.module').then( m => m.ProduitsPageModule)
+          }
+        ]
       },
       {
         path:'bateaux',
-        children:[]
-
+        children:[
+          {
+            path:'',
+            loadChildren: () => import('../bateaux/bateaux.module').then( m => m.BateauxPageModule)
+          }
+        ]
       },
       {
         path:'restaurants',
-        children:[]
+        children:[
+          {
+            path:'',
+            loadChildren: () => import('../restaurants/restaurants.module').then( m => m.RestaurantsPageModule)
+          }
+        ]
       },
       {
         path:'recettes',
-        children:[]
+        children:[
+          {
+            path:'',
+            loadChildren: () => import('../recettes/recettes.module').then( m => m.RecettesPageModule)
+          }
+        ]
       },
       {
         path:'contact',
-        children:[]
+        children:[
+           {
+            path:'',
+            loadChildren: () => import('../contact/contact.module').then( m => m.ContactPageModule)
+           }
+        ]
       },
       {
         path: '',
