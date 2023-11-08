@@ -1,0 +1,7 @@
+{
+  "name": "tkt",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
