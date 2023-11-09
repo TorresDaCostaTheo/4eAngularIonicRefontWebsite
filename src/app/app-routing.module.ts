@@ -11,6 +11,7 @@ const routes: Routes = [
     path: 'single-restaurant',
     loadChildren: () => import('./single-restaurant/single-restaurant.module').then( m => m.SingleRestaurantPageModule)
   },
+  {
     path: 'single-bateau',
     loadChildren: () => import('./single-bateau/single-bateau.module').then( m => m.SingleBateauPageModule)
   },
