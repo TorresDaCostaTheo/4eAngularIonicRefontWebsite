@@ -29,4 +29,13 @@ export class RestaurantsPage implements OnInit {
     this.restautantsList = this.restaurantsService.restaurantList;
   }
 
+  goToSingleRestaurant(restaurant: { name: string; description: string[] }) {
+    let navigationExtras: NavigationExtras = {
+      state: {
+        restaurant: restaurant,
+      },
+    };
+    this.router.navigate(['/single-restaurant'], navigationExtras);
+  }
+
 }
