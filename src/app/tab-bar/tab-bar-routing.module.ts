@@ -74,7 +74,14 @@ const routes: Routes = [
               path:'',
               loadChildren: () => import('../single-bateau/single-bateau.module').then( m => m.SingleBateauPageModule)
             }
-          ]}
+          ]},{
+            path: 'single-recette',
+            children:[
+              {
+                path:'',
+                loadChildren: () => import('../single-recette/single-recette.module').then( m => m.SingleRecettePageModule)
+              }
+            ]}
       ,
     
       {
