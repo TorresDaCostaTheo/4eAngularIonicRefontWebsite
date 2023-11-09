@@ -9,34 +9,34 @@
   <ion-grid><!-- mettre Ngfor du json ListProduct-->
     <ion-row>
       <ion-col size="6">
-          <ion-card href="/list-product">
-            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+          <ion-card (click)="goToCategoryPage(1)">
+            <img alt="Picture of a Fish" src="../../assets/picture/fish.png" />
             <ion-card-header>
-              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-title>Poissons</ion-card-title>
             </ion-card-header>
           </ion-card>
       </ion-col>
       <ion-col size="6">
-          <ion-card>
-            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+          <ion-card (click)="goToCategoryPage(2)">
+            <img alt="Picture of seaShells" src="../../assets/picture/seaShell.png" />
             <ion-card-header>
-              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-title>Coquillages</ion-card-title>
             </ion-card-header>
           </ion-card>
       </ion-col>
       <ion-col size="6">
-          <ion-card>
-            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+          <ion-card (click)="goToCategoryPage(3)">
+            <img alt="Pics of crustacean" src="../../assets/picture/crustacean.webp" />
             <ion-card-header>
-              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-title>Crustacés</ion-card-title>
             </ion-card-header>
           </ion-card>
       </ion-col>
      <ion-col size="6">
-        <ion-card>
-          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+        <ion-card (click)="goToCategoryPage(4)">
+          <img alt="Silhouette of mountains" src="../../assets/picture/promotion.png" />
           <ion-card-header>
-            <ion-card-title>Card Title</ion-card-title>
+            <ion-card-title>Promotion</ion-card-title>
           </ion-card-header>
         </ion-card>
     </ion-col>
