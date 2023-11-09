@@ -24,4 +24,5 @@ import { IonicStorageModule } from '@ionic/storage-angular';
   bootstrap: [AppComponent],
   exports: [],
 })
+
 export class AppModule {}

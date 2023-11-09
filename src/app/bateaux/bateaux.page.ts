@@ -29,7 +29,7 @@ export class BateauxPage implements OnInit {
     this.bateauxList = this.bateauxService.bateauList;
   }
 
-  goToSingleBateau(bateau: { name: string; description: string[] }) {
+  goToSingleBateau(bateau: { name: string;image:string, description: string[] }) {
     let navigationExtras: NavigationExtras = {
       state: {
         bateau: bateau,

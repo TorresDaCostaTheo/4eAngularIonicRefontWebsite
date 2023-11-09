@@ -1,0 +1,16 @@
+<app-header/>
+
+<ion-content [fullscreen]="true">
+  <ion-title>{{restaurant.name}}</ion-title>
+  <div class="card-contact">
+    <ion-card>
+      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+  
+      <ion-card-content *ngFor="let line of restaurant.description">{{line}} 
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>
+
+

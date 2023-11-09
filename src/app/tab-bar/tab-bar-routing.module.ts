@@ -74,6 +74,15 @@ const routes: Routes = [
               path:'',
               loadChildren: () => import('../single-bateau/single-bateau.module').then( m => m.SingleBateauPageModule)
             }
+          ]}
+          ,{
+            path: 'single-restaurant',
+            children:[
+              {
+                path:'',
+                loadChildren: () => import('../single-restaurant/single-restaurant.module').then( m => m.SingleRestaurantPageModule)
+              }
+            ]},
           ]},{
             path: 'single-recette',
             children:[
@@ -82,8 +91,7 @@ const routes: Routes = [
                 loadChildren: () => import('../single-recette/single-recette.module').then( m => m.SingleRecettePageModule)
               }
             ]}
-      ,
-    
+      
       {
         path: '',
         redirectTo:'produits',
