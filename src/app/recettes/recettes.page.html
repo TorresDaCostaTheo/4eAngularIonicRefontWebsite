@@ -11,7 +11,7 @@
     <ion-row>
       <ion-col size="6" *ngFor="let recette of recettesList">
         <ion-card (click)="goToSingleRecette(recette)">
-          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+          <img [src]=recette.image [alt]=recette.name/>
           <ion-card-header>
             <ion-label>
               <ion-label>
