@@ -5,7 +5,7 @@ describe('SingleBateauPage', () => {
   let component: SingleBateauPage;
   let fixture: ComponentFixture<SingleBateauPage>;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     fixture = TestBed.createComponent(SingleBateauPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
