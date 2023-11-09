@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Ajout Panier</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-input  type="number" [(ngModel)]="nbProduct"  name="valeurEntiere" required >
+    </ion-input>
+    
+  </ion-item>
+  <ion-button (click)="closeModal()"> Confirmer le nombre </ion-button>
+</ion-content>
