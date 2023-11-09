@@ -1,0 +1,81 @@
+[
+    {
+        "id": 1,
+        "name": "Spaghetti Bolognese",
+        "ingredients": [
+            "400g de viande hachée de bœuf",
+            "200g de spaghetti",
+            "1 oignon",
+            "2 gousses d'ail",
+            "400g de tomates en dés",
+            "1 cuillère à soupe d'huile d'olive",
+            "Sel et poivre"
+        ],
+        "description": [
+            "Une délicieuse recette de pâtes italiennes accompagnées d'une sauce à la viande bolognaise, riche en saveurs et en tomates."
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Salade César",
+        "ingredients": [
+            "1 laitue romaine",
+            "200g de blanc de poulet grillé",
+            "50g de parmesan râpé",
+            "Croûtons à l'ail",
+            "Sauce César",
+            "Sel et poivre"
+        ],
+        "description": [
+            "Une salade classique composée de laitue croquante, de poulet grillé, de parmesan et de croûtons, le tout arrosé de la délicieuse sauce César."
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Ratatouille Provençale",
+        "ingredients": [
+            "2 aubergines",
+            "2 courgettes",
+            "2 poivrons rouges",
+            "3 tomates mûres",
+            "2 oignons",
+            "2 gousses d'ail",
+            "Herbes de Provence",
+            "Huile d'olive",
+            "Sel et poivre"
+        ],
+        "description": [
+            "Un plat provençal traditionnel à base de légumes d'été, cuit lentement avec des herbes parfumées, de l'ail et de l'huile d'olive."
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Tarte aux Pommes",
+        "ingredients": [
+            "1 pâte brisée",
+            "4 pommes Granny Smith",
+            "100g de sucre",
+            "2 cuillères à soupe de cannelle",
+            "1 cuillère à soupe de sucre glace"
+        ],
+        "description": [
+            "Une tarte sucrée à base de pommes fraîches, saupoudrée de cannelle et de sucre glace, cuite à la perfection."
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Chili Con Carne",
+        "ingredients": [
+            "500g de bœuf haché",
+            "1 oignon",
+            "2 gousses d'ail",
+            "1 boîte de haricots rouges",
+            "1 boîte de tomates concassées",
+            "Épices chili, cumin et paprika",
+            "Sel et poivre"
+        ],
+        "description": [
+            "Un plat épicé et savoureux à base de viande hachée, de haricots rouges et de tomates, assaisonné d'épices chili pour une saveur authentique."
+        ]
+    }
+]
