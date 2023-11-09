@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { TabBarPage } from './tab-bar.page';
 
 const routes: Routes = [
@@ -68,7 +67,14 @@ const routes: Routes = [
             path:'',
             loadChildren: () => import('../list-product/list-product.module').then( m => m.ListProductPageModule)
           }
-        ]}
+        ]},{
+          path: 'single-bateau',
+          children:[
+            {
+              path:'',
+              loadChildren: () => import('../single-bateau/single-bateau.module').then( m => m.SingleBateauPageModule)
+            }
+          ]}
       ,
     
       {
