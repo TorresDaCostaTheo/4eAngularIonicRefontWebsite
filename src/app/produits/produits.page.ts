@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-produits',
@@ -12,6 +12,11 @@ export class ProduitsPage implements OnInit {
   ngOnInit() {}
 
   goToCategoryPage(category: number) {
-    this.router.navigate(['/list-product']);
+    let navigationExtras: NavigationExtras = {
+      state: {
+        category: category,
+      },
+    };
+    this.router.navigate(['/list-product'], navigationExtras);
   }
 }

@@ -11,6 +11,13 @@ const routes: Routes = [
     path: 'single-restaurant',
     loadChildren: () => import('./single-restaurant/single-restaurant.module').then( m => m.SingleRestaurantPageModule)
   },
+    path: 'single-bateau',
+    loadChildren: () => import('./single-bateau/single-bateau.module').then( m => m.SingleBateauPageModule)
+  },
+  {
+    path: 'single-recette',
+    loadChildren: () => import('./single-recette/single-recette.module').then( m => m.SingleRecettePageModule)
+  }
 ];
 
 @NgModule({

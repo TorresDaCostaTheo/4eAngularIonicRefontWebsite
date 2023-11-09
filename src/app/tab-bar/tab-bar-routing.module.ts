@@ -83,7 +83,15 @@ const routes: Routes = [
                 loadChildren: () => import('../single-restaurant/single-restaurant.module').then( m => m.SingleRestaurantPageModule)
               }
             ]},
-    
+          ]},{
+            path: 'single-recette',
+            children:[
+              {
+                path:'',
+                loadChildren: () => import('../single-recette/single-recette.module').then( m => m.SingleRecettePageModule)
+              }
+            ]}
+      
       {
         path: '',
         redirectTo:'produits',
