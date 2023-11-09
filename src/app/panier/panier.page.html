@@ -17,5 +17,9 @@
       <ion-label>{{sum}}€</ion-label>
     </ion-item>
   </ion-list>
+  <ion-select label="Lieu de livraison" [(ngModel)]="selectedValue" (ionChange)="restaurantSelected()">
+    <ion-select-option *ngFor="let restaurant of restaurantName" value="{{restaurant.id}}">{{restaurant.address}}</ion-select-option>
+  </ion-select>
   <ion-button class="submit_button" strong="true" (click)="submitProduit()">Valider le panier</ion-button>
+
 </ion-content>

@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
+import { Produit } from '../models/produit';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PanierService {
   private _storage: Storage | null = null;
-
+  private _produits:Produit[]=[];
   constructor(private storage:Storage) {this.init() }
   /**
    * Initialise le stockage local
