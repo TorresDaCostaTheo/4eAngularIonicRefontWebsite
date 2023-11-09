@@ -1,13 +1,13 @@
 <app-header/>
 <ion-content fullscreen="true" class="ion-padding">
   <ion-list >
-    <ion-item color="primary" (click)="goToProduit(produitCart.id)" *ngFor="let produitCart of produitsCart">
+    <ion-item color="primary" *ngFor="let produitCart of produitsCart">
       <ion-label>{{produitCart.name}}</ion-label>
       <ion-label class="cardItemQuantity">
         <ion-label slot="start">{{produitCart.quantity}}</ion-label>
         <ion-icon name="cart-outline" slot="end"></ion-icon>
       </ion-label>
-      <ion-label>{{produitCart.price}} $</ion-label>
+      <ion-label>{{produitCart.price*produitCart.quantity }} $</ion-label>
       <ion-button class="delete_button" color="danger" expand="fill" (click)="deleteProduit(produitCart.id)">
         <ion-icon name="trash-bin-outline" size="large"></ion-icon>
       </ion-button>

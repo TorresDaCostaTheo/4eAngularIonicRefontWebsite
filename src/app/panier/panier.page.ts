@@ -8,13 +8,17 @@ import { PanierService } from '../panierService/panier.service';
   templateUrl: './panier.page.html',
   styleUrls: ['./panier.page.scss'],
 })
-export class PanierPage implements OnInit {
+export class PanierPage implements OnInit,OnChanges {
   restaurantName:{id:number,address:string}[] = Array(4).fill({id:0,address:"Jean jaures"});
-  produitsCart:Produit[] = Array(10).fill(new Produit(0,"Produit 1",10,1));
+  produitsCart:Produit[] = this.panierService.produits;
   selectedValue:string = "-1"
   sum:number = 0;
 
   constructor(private router:Router,private panierService:PanierService) { }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+    this.sumTotal()
+  }
 
   /**
    * Initialise le composant
@@ -26,15 +30,8 @@ export class PanierPage implements OnInit {
    * Envoie les produits au panier
    */
   submitProduit(){
-    this.panierService.addProduit(this.produitsCart.map((produit:Produit)=>produit.shortProduit))
+    this.panierService.submitProduit(this.produitsCart.map((produit:Produit)=>produit.shortProduit))
     .then((result)=>{console.log(result)}).catch((error)=>console.error(error));
-  }
-  /**
-   *  Redirige vers la fiche du produit
-   * @param id
-   */
-  goToProduit(id:number){
-    this.router.navigate(['/produit',id]).then((result)=>{}).catch((error)=>{console.error("Une erreur c'est produite")});
   }
   /**
    *  Supprime le produit du panier
@@ -58,7 +55,7 @@ export class PanierPage implements OnInit {
    *  Calcul la somme total des produits
    */
   sumTotal(){
-    this.sum = this.produitsCart.reduce((sum:number,produit:Produit)=>sum+produit.price,0);
+    this.sum = this.produitsCart.reduce((sum:number,produit:Produit)=>sum+produit.price*produit.quantity,0);
     console.log(this.sum);
 
   }
