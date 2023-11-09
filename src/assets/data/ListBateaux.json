@@ -2,6 +2,7 @@
     {
       "id":1,
       "name": "De la Brise",
+      "image":"../../assets/picture/bateau1.jpeg",
       "description": [
         "Quil est chaud le solei",
         "Quand nous sommes en vacances",
@@ -17,6 +18,7 @@
     {
       "id":2,
       "name": "Saphir",
+      "image":"../../assets/picture/bateau2.jpeg",
       "description": [
         "Quil est chaud le solei",
         "Quand nous sommes en vacances",
@@ -32,6 +34,7 @@
     {
       "id":3,
       "name": "Gast Micher",
+      "image":"../../assets/picture/bateau3.jpeg",
       "description": [
         "Quil est chaud le solei",
         "Quand nous sommes en vacances",
@@ -47,6 +50,7 @@
     {
       "id":4,
       "name": "Aquilon",
+      "image":"../../assets/picture/bateau4.jpeg",
       "description": [
         "Quil est chaud le solei",
         "Quand nous sommes en vacances",
