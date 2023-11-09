@@ -1,0 +1,24 @@
+ion-title {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  
+  ion-col {
+    padding: 20px;
+  }
+  
+  ion-card {
+    --padding-start: 0;
+    max-width: 600px; 
+    width: 100%; 
+    margin: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  img{
+    width: 250px;
+  }

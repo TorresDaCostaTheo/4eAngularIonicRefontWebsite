@@ -1,8 +1,56 @@
 <app-header/>
+
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-title size="large">Bateaux</ion-title>
+      <ion-title>Bateaux</ion-title>
+      <ion-title>Liste des bateaux</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+          <ion-card>
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+            <ion-card-header>
+              <ion-card-title>Bistrot des Gascons</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+      </ion-col>
+      <ion-col size="6">
+          <ion-card>
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+            <ion-card-header>
+              <ion-card-title>Les fous de l'île</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+      </ion-col>
+      <ion-col size="6">
+          <ion-card>
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+            <ion-card-header>
+              <ion-card-title>Bistrot Landais</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+      </ion-col>
+     <ion-col size="6">
+        <ion-card>
+          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+          <ion-card-header>
+            <ion-card-title>Villa 9-Trois</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+    </ion-col>
+    <ion-col size="6">
+      <ion-card>
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+        <ion-card-header>
+          <ion-card-title>Bistrot du Sommelier</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+  </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>
