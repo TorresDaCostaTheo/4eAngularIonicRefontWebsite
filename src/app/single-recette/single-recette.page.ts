@@ -9,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class SingleRecettePage implements OnInit {
   recette: {
     name: string;
+    image: string;
     ingredients: string[];
     description: string[];
-  } = { name: '', ingredients:[''], description: [''] };
+  } = { name: '', image:'', ingredients:[''], description: [''] };
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
