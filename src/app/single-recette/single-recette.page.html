@@ -1,11 +1,13 @@
 
 <app-header/>
 
-<ion-content >
-  <ion-title>{{recette.name}}</ion-title>
-  <div class="card-contact">
+<ion-content>
+  <div>
     <ion-card>
-      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+      <ion-item>
+        <ion-title>{{recette.name}}</ion-title>
+      </ion-item>
+      <img src="{{recette.image}}">
       <ion-card-content *ngFor="let line of recette.description">{{line}} </ion-card-content>
       <ion-card-content *ngFor="let line of recette.ingredients">{{line}} </ion-card-content>
     </ion-card>
