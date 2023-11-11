@@ -1,32 +1,24 @@
 .card-contact {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 60vh;
-  }
-  ion-title{
-    text-align: center;
-    margin-top: 80px;
-    margin-bottom: 80px;
-
-  }
-  
-  ion-card {
-    width: 600px;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-  }
-
-  ion-card-content{
-    text-align: justify;
-  }
-  
-  ion-card-header{
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
 }
-  img {
-    max-width: 500px;
-    margin-top: 20px;
-  }
-  
+ion-title{
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 80px;
+
+}
+
+ion-card {
+  width: 600px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+}
+
+img{
+width: 600px;
+height: 500px;
+}

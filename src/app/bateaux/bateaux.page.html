@@ -4,14 +4,13 @@
   <ion-header [translucent]="true">
     <ion-toolbar>
       <ion-title>Bateaux</ion-title>
-      <ion-title>Liste des bateaux</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-grid>
     <ion-row>
-      <ion-col size="6" *ngFor="let bateau of bateauxList">
-          <ion-card  (click)="goToSingleBateau(bateau)">
+      <ion-col size="12" size-md="11" size-lg="6" *ngFor="let bateau of bateauxList">
+          <ion-card  (click)="goToSingleBateau(bateau)" >
             <img [src]=bateau.image [alt]=bateau.name/>
             <ion-card-header>
               <ion-label>

@@ -9,8 +9,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SingleBateauPage implements OnInit {
   bateau: {
     name: string;
+    image:string;
     description: string[];
-  } = { name: '', description: [''] };
+  } = { name: '',image:'', description: [''] };
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
