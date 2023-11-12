@@ -11,7 +11,7 @@
     <ion-row>
       <ion-col size="12" size-md="11" size-lg="6" *ngFor="let restaurant of restautantsList">
         <ion-card  (click)="goToSingleRestaurant(restaurant)">
-            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+            <img alt="{{restaurant.name}}" src="{{restaurant.image}}">
             <ion-card-header>
               <ion-label>
                 <ion-title>

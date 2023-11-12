@@ -9,8 +9,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SingleRestaurantPage implements OnInit {
   restaurant: {
     name: string;
+    image:string;
     description: string[];
-  } = { name: '', description: [''] };
+  } = { name: '',image:'', description: [''] };
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 

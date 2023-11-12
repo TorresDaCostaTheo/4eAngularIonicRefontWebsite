@@ -6,6 +6,9 @@ ion-card {
   align-items: center;
 }
 
+ion-card:hover{
+  cursor: pointer;
+}
 img {
   width: 400px;
   height:400px;

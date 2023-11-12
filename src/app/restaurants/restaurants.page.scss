@@ -1,4 +1,15 @@
-img{
-  width: 725px;
-  height: 650px;
+ion-card {
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-card:hover{
+  cursor: pointer;
+}
+img {
+  width: 400px;
+  height:400px;
 }

@@ -11,7 +11,7 @@
     <ion-row>
       <ion-col size="6" *ngFor="let recette of recettesList">
         <ion-card (click)="goToSingleRecette(recette)">
-          <img [src]=recette.image [alt]=recette.name/>
+          <img alt="{{recette.name}}" src="{{recette.image}}">
           <ion-card-header>
             <ion-label>
               <ion-label>
