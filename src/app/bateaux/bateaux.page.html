@@ -9,7 +9,7 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col size="12" size-md="11" size-lg="6" *ngFor="let bateau of bateauxList">
+      <ion-col size="6" *ngFor="let bateau of bateauxList">
           <ion-card  (click)="goToSingleBateau(bateau)" >
             <img alt="{{bateau.name}}" src="{{bateau.image}}">
             <ion-card-header>
