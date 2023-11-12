@@ -4,7 +4,7 @@
   <ion-title>{{bateau.name}}</ion-title>
   <div class="card-contact">
     <ion-card>
-      <img [src]=bateau.image [alt]=bateau.name/>
+      <img alt="{{bateau.name}}" src="{{bateau.image}}">
   
       <ion-card-content *ngFor="let line of bateau.description">{{line}} 
       </ion-card-content>

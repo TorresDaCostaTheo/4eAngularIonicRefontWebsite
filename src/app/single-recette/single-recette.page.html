@@ -7,7 +7,7 @@
       <ion-item>
         <ion-title>{{recette.name}}</ion-title>
       </ion-item>
-      <img src="{{recette.image}}">
+      <img alt="{{recette.name}}" src="{{recette.image}}">
       <ion-card-content *ngFor="let line of recette.description">{{line}} </ion-card-content>
       <ion-card-content *ngFor="let line of recette.ingredients">{{line}} </ion-card-content>
     </ion-card>
