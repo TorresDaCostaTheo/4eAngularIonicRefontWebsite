@@ -2,7 +2,7 @@
     {
       "id":1,
       "name": "De la Brise",
-      "image":"../../assets/picture/bateau1.jpeg",
+      "image":"../../assets/picture/bateau1.jpg",
       "description": [
         "Quil est chaud le solei",
         "Quand nous sommes en vacances",
@@ -18,7 +18,7 @@
     {
       "id":2,
       "name": "Saphir",
-      "image":"../../assets/picture/bateau2.jpeg",
+      "image":"../../assets/picture/bateau2.jpg",
       "description": [
         "Quil est chaud le solei",
         "Quand nous sommes en vacances",
