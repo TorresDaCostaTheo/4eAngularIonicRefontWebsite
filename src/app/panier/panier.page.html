@@ -15,11 +15,12 @@
     <ion-item color="secondary">
       <ion-label>Total</ion-label>
       <ion-label>{{sum}}€</ion-label>
+      <ion-button color="danger" class="delete_button" (click)="deleteAllProduit()"><ion-icon name="trash-outline" size="large" ></ion-icon></ion-button>
     </ion-item>
   </ion-list>
   <ion-select label="Lieu de livraison" [(ngModel)]="selectedValue" (ionChange)="restaurantSelected()">
-    <ion-select-option *ngFor="let restaurant of restaurantName" value="{{restaurant.id}}">{{restaurant.address}}</ion-select-option>
+    <ion-select-option *ngFor="let restaurant of restaurants" value="{{restaurant.name}}"><ion-img src="{{restaurant.image}}"/>{{restaurant.name}}</ion-select-option>
   </ion-select>
-  <ion-button class="submit_button" strong="true" (click)="submitProduit()">Valider le panier</ion-button>
+  <ion-button class="submit_button" strong="true" (click)="confirmOrder()">Valider le panier</ion-button>
 
 </ion-content>
