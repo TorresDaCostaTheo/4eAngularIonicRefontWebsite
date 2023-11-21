@@ -12,5 +12,5 @@ describe('ErrorInterceptor', () => {
   it('should be created', () => {
     const interceptor: ErrorInterceptor = TestBed.inject(ErrorInterceptor);
     expect(interceptor).toBeTruthy();
-  });
+  }); 
 });

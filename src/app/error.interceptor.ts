@@ -13,7 +13,7 @@ export class ErrorInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse): Observable<HttpEvent<any>> => {
         console.error('Erreur HTTP interceptée :', error);
         if (error.error instanceof ErrorEvent) {
-          // Erreur côté client
+          // Erreur côté client 
           console.error('Erreur côté client :', error.error.message);
         } else {
           // Erreur côté serveur
