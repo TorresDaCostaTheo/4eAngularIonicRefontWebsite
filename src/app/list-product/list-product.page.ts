@@ -42,9 +42,9 @@ export class ListProductPage implements OnInit {
       (res) => {
         listProductsTemporary = res;
         listProductsTemporary.forEach((product) => {
-          if (product.category === category) {
-            console.log(product);
-            console.table(this.listProducts);
+          if (category == 4 && product.sale) {
+            this.listProducts.push(product);
+          } else if (product.category === category) {
             this.listProducts.push(product);
           }
         });
