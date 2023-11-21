@@ -91,6 +91,15 @@ const routes: Routes = [
                 loadChildren: () => import('../single-recette/single-recette.module').then( m => m.SingleRecettePageModule)
               }
             ]},
+            {
+              path: 'error',
+              children: [
+                {
+                path: '',
+                loadChildren: () => import('../error/error.module').then( m => m.ErrorPageModule)
+              }
+            ]
+            },
       
       {
         path: '',
