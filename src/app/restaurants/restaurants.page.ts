@@ -29,7 +29,7 @@ export class RestaurantsPage implements OnInit {
     this.restautantsList = this.restaurantsService.restaurantList;
   }
 
-  goToSingleRestaurant(restaurant: { name: string; description: string[] }) {
+  goToSingleRestaurant(restaurant: { name: string; adresse:string,description: string[] }) {
     let navigationExtras: NavigationExtras = {
       state: {
         restaurant: restaurant,

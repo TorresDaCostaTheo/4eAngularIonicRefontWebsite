@@ -3,6 +3,7 @@
       "id":1,
       "name": "Bistrot des Gasçons",
       "image":"../../assets/picture/restaurant1.jpeg",
+      "adresse":"adresse 1",
       "description": [
         "Quil est chaud le solei",
         "Quand nous sommes en vacances",
@@ -19,6 +20,7 @@
       "id":2,
       "name": "Les fous de l'île",
       "image":"../../assets/picture/restaurant2.jpeg",
+      "adresse":"adresse 2",
       "description": [
         "Quil est chaud le solei",
         "Quand nous sommes en vacances",
@@ -35,6 +37,7 @@
       "id":3,
       "name": "Bistrot Landais",
       "image":"../../assets/picture/restaurant3.jpeg",
+      "adresse":"adresse 3",
       "description": [
         "Quil est chaud le solei",
         "Quand nous sommes en vacances",
@@ -51,6 +54,7 @@
       "id":4,
       "name": "Villas 9-Trois",
       "image":"../../assets/picture/restaurant4.jpeg",
+      "adresse":"adresse 4",
       "description": [
         "Quil est chaud le solei",
         "Quand nous sommes en vacances",
@@ -67,6 +71,7 @@
       "id":5,
       "name": "Bistrot du Sommelier",
       "image":"../../assets/picture/restaurant5.jpeg",
+      "adresse":"adresse 5",
       "description": [
         "Quil est chaud le solei",
         "Quand nous sommes en vacances",

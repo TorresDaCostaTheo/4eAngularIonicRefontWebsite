@@ -10,8 +10,9 @@ export class SingleRestaurantPage implements OnInit {
   restaurant: {
     name: string;
     image:string;
+    adresse:string,
     description: string[];
-  } = { name: '',image:'', description: [''] };
+  } = { name: '',image:'',adresse:'', description: [''] };
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
