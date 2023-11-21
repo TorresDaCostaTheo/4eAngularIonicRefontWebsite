@@ -4,8 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () =>
-      import('./tab-bar/tab-bar.module').then((m) => m.TabBarPageModule),
+    loadChildren: () => import('./tab-bar/tab-bar.module').then((m) => m.TabBarPageModule),
   },
   {
     path: 'single-restaurant',
@@ -18,7 +17,17 @@ const routes: Routes = [
   {
     path: 'single-recette',
     loadChildren: () => import('./single-recette/single-recette.module').then( m => m.SingleRecettePageModule)
+  },
+  {
+    path: 'error',
+    loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
+  },
+  {
+    path: '**',
+    redirectTo: '/error',
+    pathMatch: 'full',
   }
+
 ];
 
 @NgModule({

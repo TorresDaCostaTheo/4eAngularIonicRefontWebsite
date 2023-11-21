@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactPage implements OnInit {
 
-  constructor() { }
+  constructor(private toastController: ToastController) {}  
+  ngOnInit(){}
 
-  ngOnInit() {
+  async presentToast(position:'bottom') {
+    const toast = await this.toastController.create({
+      message: 'Erreur 505',
+      duration: 1500,
+      position: position,
+    });
+
+    await toast.present();
   }
-
 }
