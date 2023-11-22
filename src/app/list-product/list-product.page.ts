@@ -5,6 +5,7 @@ import { ProductService } from '../services/product.service';
 import { IonModal, ModalController } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { ProduitModalComponent } from '../produit-modal/produit-modal.component';
+import { PanierService } from '../panierService/panier.service';
 
 @Component({
   selector: 'app-list-product',
@@ -21,7 +22,8 @@ export class ListProductPage implements OnInit {
     private productService: ProductService,
     private route: ActivatedRoute,
     private router: Router,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private panierService: PanierService
   ) {}
 
   ngOnInit() {
@@ -65,7 +67,11 @@ export class ListProductPage implements OnInit {
 
     modal.onDidDismiss().then((data) => {
       if (data && data.data) {
-        console.log('nbProduct : ' + data.data.nbProduct);
+        console.log('nbProduct : ' +data.data.nbProduct);
+        this.panierService.produit = {
+          idProduit : idProduit,
+          quantity : data.data.nbProduct
+        }
       }
     });
 

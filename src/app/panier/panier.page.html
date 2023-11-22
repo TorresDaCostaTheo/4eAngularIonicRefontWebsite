@@ -1,25 +1,22 @@
 <app-header/>
 <ion-content fullscreen="true" class="ion-padding">
-  <ion-list >
-    <ion-item color="primary" (click)="goToProduit(produitCart.id)" *ngFor="let produitCart of produitsCart">
+  <ion-list class="cartList" *ngIf="produitsCart.length !== 0;else emptyCart">
+    <ion-item color="primary" *ngFor="let produitCart of produitsCart">
       <ion-label>{{produitCart.name}}</ion-label>
       <ion-label class="cardItemQuantity">
         <ion-label slot="start">{{produitCart.quantity}}</ion-label>
         <ion-icon name="cart-outline" slot="end"></ion-icon>
       </ion-label>
-      <ion-label>{{produitCart.price}} $</ion-label>
+      <ion-label>{{produitCart.price*produitCart.quantity }} $</ion-label>
       <ion-button class="delete_button" color="danger" expand="fill" (click)="deleteProduit(produitCart.id)">
         <ion-icon name="trash-bin-outline" size="large"></ion-icon>
       </ion-button>
     </ion-item>
-    <ion-item color="secondary">
-      <ion-label>Total</ion-label>
-      <ion-label>{{sum}}€</ion-label>
-    </ion-item>
   </ion-list>
-  <ion-select label="Lieu de livraison" [(ngModel)]="selectedValue" (ionChange)="restaurantSelected()">
-    <ion-select-option *ngFor="let restaurant of restaurantName" value="{{restaurant.id}}">{{restaurant.address}}</ion-select-option>
-  </ion-select>
-  <ion-button class="submit_button" strong="true" (click)="submitProduit()">Valider le panier</ion-button>
-
+  <app-cart-summary [totalCart]="sum" [restaurants]="restaurants" slot="fixed"  (confirmCallback)="confirmOrder($event)"></app-cart-summary>
 </ion-content>
+<ng-template #emptyCart>
+  <div class="cartList">
+    <h1>Le panier est actuellement vide.</h1>
+  </div>
+</ng-template>

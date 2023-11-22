@@ -2,6 +2,9 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import {Produit} from '../models/produit';
 import { PanierService } from '../panierService/panier.service';
+import { HttpClient } from '@angular/common/http';
+import { Restaurant } from '../models/restaurant';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-panier',
@@ -9,32 +12,37 @@ import { PanierService } from '../panierService/panier.service';
   styleUrls: ['./panier.page.scss'],
 })
 export class PanierPage implements OnInit {
-  restaurantName:{id:number,address:string}[] = Array(4).fill({id:0,address:"Jean jaures"});
-  produitsCart:Produit[] = Array(10).fill(new Produit(0,"Produit 1",10,1));
-  selectedValue:string = "-1"
+  restaurants:Restaurant[] = this.panierService.restaurants;
+  produitsCart:Produit[] = this.panierService.produits;
+  restaurantSelect:Restaurant | undefined = undefined;
   sum:number = 0;
 
-  constructor(private router:Router,private panierService:PanierService) { }
-
+  constructor(private router:Router,private panierService:PanierService,private alertController:AlertController) {
+  }
   /**
    * Initialise le composant
    */
   ngOnInit() {
-    this.sumTotal()
+    this.panierService.callback = ()=>{
+      this.sumTotal()
+    }
   }
   /**
    * Envoie les produits au panier
    */
-  submitProduit(){
-    this.panierService.addProduit(this.produitsCart.map((produit:Produit)=>produit.shortProduit))
-    .then((result)=>{console.log(result)}).catch((error)=>console.error(error));
-  }
-  /**
-   *  Redirige vers la fiche du produit
-   * @param id
-   */
-  goToProduit(id:number){
-    this.router.navigate(['/produit',id]).then((result)=>{}).catch((error)=>{console.error("Une erreur c'est produite")});
+  async submitProduit(){
+    if(this.restaurantSelect === undefined){
+      return Promise.reject("Valeur");
+    }
+    return this.panierService.submitProduit(this.produitsCart.map((produit:Produit)=>produit.shortProduit),this.restaurantSelect)
+    .then((result)=>{
+      console.log(result);
+      return Promise.resolve()
+     })
+     .catch((error)=>{
+        console.log(error);
+        return Promise.reject(error)
+     })
   }
   /**
    *  Supprime le produit du panier
@@ -46,19 +54,47 @@ export class PanierPage implements OnInit {
       this.sumTotal()
     }
   }
-  /**
-   *  Donne le restaurant sélectionner
-   * @param event
-   */
-  restaurantSelected(){
-    console.log(this.selectedValue);
+  deleteAllProduit(){
+    this.produitsCart = [];
+    this.sumTotal()
+  }
+  async confirmOrder(data:string|{empty:boolean}){
+    if(typeof data === "object"){
+      if(data.empty){
+        this.deleteAllProduit();
+      }
+      return;
+    }
+    this.restaurantSelect = this.restaurants.find((restaurant:Restaurant)=>restaurant.name==data);
+    const alert = await this.alertController.create({
+      header: "Confirmation du panier",
+      message: "Voulez-vous confirmer l'achat ?\n Cette action est irréversible",
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          cssClass: 'danger',
+        },
+        {
+          text: 'Confirmer',
+          role: 'confirm',
+          cssClass: 'primary',
+          handler: () => {
+            this.submitProduit().then(()=>{
+              console.log("Commande valider")
+            })
+          }
+        }
+      ]
+    })
+    await alert.present();
 
   }
   /**
    *  Calcul la somme total des produits
    */
   sumTotal(){
-    this.sum = this.produitsCart.reduce((sum:number,produit:Produit)=>sum+produit.price,0);
+    this.sum = this.produitsCart.reduce((sum:number,produit:Produit)=>sum+produit.price*produit.quantity,0);
     console.log(this.sum);
 
   }
