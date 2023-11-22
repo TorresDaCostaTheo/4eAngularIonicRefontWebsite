@@ -16,10 +16,7 @@
         (click)="openModal(product.id)"
       >
         <ion-thumbnail slot="start">
-          <img
-            alt="Silhouette of mountains"
-            src="https://ionicframework.com/docs/img/demos/thumbnail.svg"
-          />
+        <img alt="{{product.name}}" src="{{product.image}}">
         </ion-thumbnail>
         <ion-label size="4">{{product.name}}</ion-label>
         <ion-card-content size="4"> Nbr Panier </ion-card-content>
