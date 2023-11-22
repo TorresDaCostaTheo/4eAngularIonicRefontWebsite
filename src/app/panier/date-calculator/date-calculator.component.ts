@@ -9,7 +9,7 @@ import { Restaurant } from 'src/app/models/restaurant';
 })
 export class DateCalculatorComponent  implements OnInit {
   @Input()
-  private openDayDate:number[]=[1,5];
+  private openDayDate:number[]=[0,6,3];
   selectedDate:string ="0/0";
   constructor() { }
   ngOnInit() {

@@ -1,0 +1,16 @@
+
+.submit_button{
+  text-align: center;
+  align-items: center;
+}
+ion-select {
+  color : var(--ion-color-secondary);
+  --placeholder-color: var(--ion-color-secondary);
+}
+.total_display{
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+  align-items: center;
+  flex-direction: row;
+}

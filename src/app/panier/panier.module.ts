@@ -9,6 +9,7 @@ import { PanierPageRoutingModule } from './panier-routing.module';
 import { PanierPage } from './panier.page';
 import { SharedModule } from '../shared/shared.module';
 import { DateCalculatorComponent } from './date-calculator/date-calculator.component';
+import { CartSummaryComponent } from './cart-summary/cart-summary.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { DateCalculatorComponent } from './date-calculator/date-calculator.compo
     SharedModule,
 
   ],
-  declarations: [PanierPage,DateCalculatorComponent]
+  declarations: [PanierPage,DateCalculatorComponent,CartSummaryComponent]
 })
 export class PanierPageModule {}

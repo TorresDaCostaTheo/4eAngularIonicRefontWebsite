@@ -10,17 +10,20 @@ import { RestaurantsService } from '../services/restaurants.service';
   providedIn: 'root'
 })
 export class PanierService {
-  private _storage: Storage | null = null;
+  private _storage: Storage = new Storage;
   private _produits:Produit[]=[];
   private _restaurants:Restaurant[]=[];
   private _callbackProduct:()=>void = ()=>{};
-  constructor(private storage:Storage,private productService:ProductService,private restaurantService:RestaurantsService) {this.init() }
+  constructor(private storage:Storage,private productService:ProductService,private restaurantService:RestaurantsService) {
+    this.init() }
   /**
    * Initialise le stockage local
    */
   async init(){
-    this._storage =await this.storage.create();
+    this._storage.create();
     this._storage.set('produitsCart',[]);
+    this._storage.set('deliveryPoint',"");
+    this.requestRestaurants();
 
 
   }
@@ -59,7 +62,6 @@ export class PanierService {
         this._restaurants = [];
       }
     })
-    console.log(this._restaurants);
   }
   get restaurants():Restaurant[]{
     return this._restaurants;
@@ -71,16 +73,17 @@ export class PanierService {
    * @param produit
    * @returns
    */
-  async submitProduit(produit:{id:number,quantity:number}[]){
-   return this._storage?.get('produitsCart').then((produitsCart:{id:number,quantity:number}[])=>{
+  async submitProduit(produit:{id:number,quantity:number}[],restaurant:Restaurant){
+   return this._storage.get('produitsCart').then((produitsCart:{id:number,quantity:number}[])=>{
       const result = produit.filter(produit=>{ return !produitsCart.includes(produit)});
       if(result.length==0){
-        return Promise.reject("Produit déjà ajouté");
+        return Promise.reject("Pas de produit à ajouter");
       }else{
         produitsCart.push(...result);
       }
       console.log(produitsCart);
-      return this._storage?.set('produitsCart',produitsCart)
+      this._storage.set('deliveryPoint',restaurant.adresse)
+      return this._storage.set('produitsCart',produitsCart)
       .then((result)=>{
         Promise.resolve("Produit ajouté au panier")})
       .catch((error)=>{Promise.reject(error)

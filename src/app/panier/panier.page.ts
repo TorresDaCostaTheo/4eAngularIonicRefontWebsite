@@ -14,7 +14,7 @@ import { AlertController } from '@ionic/angular';
 export class PanierPage implements OnInit {
   restaurants:Restaurant[] = this.panierService.restaurants;
   produitsCart:Produit[] = this.panierService.produits;
-  selectedValue:string = "-1"
+  restaurantSelect:Restaurant | undefined = undefined;
   sum:number = 0;
 
   constructor(private router:Router,private panierService:PanierService,private alertController:AlertController) {
@@ -31,14 +31,17 @@ export class PanierPage implements OnInit {
    * Envoie les produits au panier
    */
   async submitProduit(){
-   return this.panierService.submitProduit(this.produitsCart.map((produit:Produit)=>produit.shortProduit))
+    if(this.restaurantSelect === undefined){
+      return Promise.reject("Valeur");
+    }
+    return this.panierService.submitProduit(this.produitsCart.map((produit:Produit)=>produit.shortProduit),this.restaurantSelect)
     .then((result)=>{
       console.log(result);
       return Promise.resolve()
      })
      .catch((error)=>{
         console.log(error);
-        return Promise.reject()
+        return Promise.reject(error)
      })
   }
   /**
@@ -55,7 +58,14 @@ export class PanierPage implements OnInit {
     this.produitsCart = [];
     this.sumTotal()
   }
-  async confirmOrder(){
+  async confirmOrder(data:string|{empty:boolean}){
+    if(typeof data === "object"){
+      if(data.empty){
+        this.deleteAllProduit();
+      }
+      return;
+    }
+    this.restaurantSelect = this.restaurants.find((restaurant:Restaurant)=>restaurant.name==data);
     const alert = await this.alertController.create({
       header: "Confirmation du panier",
       message: "Voulez-vous confirmer l'achat ?\n Cette action est irréversible",
@@ -78,14 +88,6 @@ export class PanierPage implements OnInit {
       ]
     })
     await alert.present();
-
-  }
-  /**
-   *  Donne le restaurant sélectionner
-   * @param event
-   */
-  restaurantSelected(){
-    console.log(this.selectedValue);
 
   }
   /**
