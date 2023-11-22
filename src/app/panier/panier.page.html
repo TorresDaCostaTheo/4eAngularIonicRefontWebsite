@@ -21,6 +21,7 @@
   <ion-select label="Lieu de livraison" [(ngModel)]="selectedValue" (ionChange)="restaurantSelected()">
     <ion-select-option *ngFor="let restaurant of restaurants" value="{{restaurant.name}}"><ion-img src="{{restaurant.image}}"/>{{restaurant.name}}</ion-select-option>
   </ion-select>
+  <app-date-calculator></app-date-calculator>
   <ion-button class="submit_button" strong="true" (click)="confirmOrder()">Valider le panier</ion-button>
 
 </ion-content>

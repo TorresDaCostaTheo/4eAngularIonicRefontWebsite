@@ -44,12 +44,13 @@ export class PanierService {
     this.restaurantService.getRestaurants().subscribe((restaurants)=>{
       console.log(restaurants);
       this._restaurants.push(...restaurants.map((value,i) =>{
-        const v:Restaurant = {
+        const values:Restaurant = {
           description : value.description,
           name : value.name,
           image : value.image,
+          adresse: value.adresse
         }
-        return v;
+        return values;
       }));
       if(restaurants){
         this._restaurants = restaurants;

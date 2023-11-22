@@ -8,6 +8,7 @@ import { PanierPageRoutingModule } from './panier-routing.module';
 
 import { PanierPage } from './panier.page';
 import { SharedModule } from '../shared/shared.module';
+import { DateCalculatorComponent } from './date-calculator/date-calculator.component';
 
 @NgModule({
   imports: [
@@ -15,8 +16,9 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     IonicModule,
     PanierPageRoutingModule,
-    SharedModule
+    SharedModule,
+
   ],
-  declarations: [PanierPage]
+  declarations: [PanierPage,DateCalculatorComponent]
 })
 export class PanierPageModule {}
