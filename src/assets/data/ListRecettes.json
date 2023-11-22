@@ -1,86 +1,88 @@
 [
     {
         "id": 1,
-        "name": "Spaghetti Bolognese",
-        "image":"../../assets/picture/bolognese.png",
+        "name": "Saumon Grillé avec Légumes Rôtis",
+        "image": "../../assets/picture/saumon_grille.png",
         "ingredients": [
-            "400g de viande hachée de bœuf",
-            "200g de spaghetti",
-            "1 oignon",
-            "2 gousses d'ail",
-            "400g de tomates en dés",
-            "1 cuillère à soupe d'huile d'olive",
-            "Sel et poivre"
+            "Filet de saumon",
+            "Citron",
+            "Sel et poivre",
+            "Légumes (carottes, courgettes, poivrons)",
+            "Huile d'olive"
         ],
         "description": [
-            "Une délicieuse recette de pâtes italiennes accompagnées d'une sauce à la viande bolognaise, riche en saveurs et en tomates."
+            "Filet de saumon grillé assaisonné avec du citron, du sel et du poivre, accompagné de légumes rôtis à l'huile d'olive."
         ]
     },
     {
         "id": 2,
-        "name": "Salade César",
-        "image":"../../assets/picture/cesar.jpeg",
+        "name": "Tacos au Poisson",
+        "image": "../../assets/picture/tacos_poisson.png",
         "ingredients": [
-            "1 laitue romaine",
-            "200g de blanc de poulet grillé",
-            "50g de parmesan râpé",
-            "Croûtons à l'ail",
-            "Sauce César",
-            "Sel et poivre"
+            "Filets de poisson (tilapia, cabillaud)",
+            "Épices mexicaines",
+            "Tortillas de maïs",
+            "Chou râpé",
+            "Salsa",
+            "Avocat",
+            "Coriandre"
         ],
         "description": [
-            "Une salade classique composée de laitue croquante, de poulet grillé, de parmesan et de croûtons, le tout arrosé de la délicieuse sauce César."
+            "Tacos délicieux avec des filets de poisson assaisonnés aux épices mexicaines, garnis de chou, de salsa, d'avocat et de coriandre."
         ]
     },
     {
         "id": 3,
-        "name": "Ratatouille Provençale",
-        "image":"../../assets/picture/ratatouille.jpg",
+        "name": "Salade de Thon Niçoise",
+        "image": "../../assets/picture/salade_nicoise.png",
         "ingredients": [
-            "2 aubergines",
-            "2 courgettes",
-            "2 poivrons rouges",
-            "3 tomates mûres",
-            "2 oignons",
-            "2 gousses d'ail",
-            "Herbes de Provence",
+            "Thon en conserve",
+            "Laitue",
+            "Tomates cerises",
+            "Haricots verts",
+            "Œufs durs",
+            "Olives",
+            "Pommes de terre",
             "Huile d'olive",
-            "Sel et poivre"
+            "Moutarde",
+            "Vinaigre"
         ],
         "description": [
-            "Un plat provençal traditionnel à base de légumes d'été, cuit lentement avec des herbes parfumées, de l'ail et de l'huile d'olive."
+            "Salade de thon niçoise avec thon émietté, laitue, tomates, haricots verts, œufs durs, olives et pommes de terre, assaisonnée d'une vinaigrette maison."
         ]
     },
     {
         "id": 4,
-        "name": "Tarte aux Pommes",
-        "image":"../../assets/picture/tarte.jpg",
+        "name": "Curry de Poisson au Lait de Coco",
+        "image": "../../assets/picture/curry_poisson.png",
         "ingredients": [
-            "1 pâte brisée",
-            "4 pommes Granny Smith",
-            "100g de sucre",
-            "2 cuillères à soupe de cannelle",
-            "1 cuillère à soupe de sucre glace"
+            "Morceaux de poisson (mahimahi, saumon)",
+            "Sauce au curry",
+            "Lait de coco",
+            "Poivrons",
+            "Pois mange-tout",
+            "Oignons"
         ],
         "description": [
-            "Une tarte sucrée à base de pommes fraîches, saupoudrée de cannelle et de sucre glace, cuite à la perfection."
+            "Morceaux de poisson cuits dans une délicieuse sauce au curry avec du lait de coco, des poivrons, des pois mange-tout et des oignons."
         ]
     },
     {
         "id": 5,
-        "name": "Chili Con Carne",
-        "image":"../../assets/picture/chili.jpeg",
+        "name": "Sushi Maison",
+        "image": "../../assets/picture/sushi.png",
         "ingredients": [
-            "500g de bœuf haché",
-            "1 oignon",
-            "2 gousses d'ail",
-            "1 boîte de haricots rouges",
-            "1 boîte de tomates concassées",
-            "Épices chili, cumin et paprika",
-            "Sel et poivre"
+            "Riz vinaigré",
+            "Feuilles de nori",
+            "Thon ou saumon cru",
+            "Avocat",
+            "Concombre",
+            "Sauce soja",
+            "Wasabi",
+            "Gingembre mariné"
         ],
         "description": [
-            "Un plat épicé et savoureux à base de viande hachée, de haricots rouges et de tomates, assaisonné d'épices chili pour une saveur authentique."
+            "Rouleaux de sushi faits maison avec du riz vinaigré, des feuilles de nori, du thon ou du saumon cru, de l'avocat, du concombre, servi avec de la sauce soja, du wasabi et du gingembre mariné."
         ]
     }
 ]
