@@ -4,7 +4,8 @@ import { Produit } from '../models/produit';
 import { PanierService } from '../panierService/panier.service';
 import { HttpClient } from '@angular/common/http';
 import { Restaurant } from '../models/restaurant';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+import { ConfirmCheckoutComponent } from './confirm-checkout/confirm-checkout.component';
 
 @Component({
   selector: 'app-panier',
@@ -17,11 +18,8 @@ export class PanierPage implements OnInit {
   restaurantSelect: Restaurant | undefined = undefined;
   sum: number = 0;
 
-  constructor(
-    private router: Router,
-    private panierService: PanierService,
-    private alertController: AlertController
-  ) {}
+  constructor(private modalCtr:ModalController,private panierService:PanierService,private alertController:AlertController) {
+  }
   /**
    * Initialise le composant
    */
@@ -68,9 +66,15 @@ export class PanierPage implements OnInit {
     console.table(this.produitsCart);
     this.sumTotal();
   }
-  async confirmOrder(data: string | { empty: boolean }) {
-    if (typeof data === 'object') {
-      if (data.empty) {
+  async confirmOrder(data:string|{empty:boolean}){
+    const confirmModal= await this.modalCtr.create({component:ConfirmCheckoutComponent,componentProps:{
+      'confirmText':'Validation de la commande',
+      'errorText':'Annuler la commande',
+      'timerOut':2000,
+    }})
+
+    if(typeof data === "object"){
+      if(data.empty){
         this.deleteAllProduit();
       }
       return;
@@ -93,12 +97,17 @@ export class PanierPage implements OnInit {
           role: 'confirm',
           cssClass: 'primary',
           handler: () => {
-            this.submitProduit();
-            console.log('Commande valider');
-          },
-        },
-      ],
-    });
+            confirmModal.present();
+            confirmModal.onDidDismiss().then((data)=>{
+              this.submitProduit().then(()=>{
+
+              })
+            })
+
+          }
+        }
+      ]
+    })
     await alert.present();
   }
   /**

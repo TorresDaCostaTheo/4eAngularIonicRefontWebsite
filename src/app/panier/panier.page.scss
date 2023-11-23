@@ -17,3 +17,9 @@ app-cart-summary{
   height: 70%;
   overflow-y: scroll;
 }
+.transparent {
+  opacity: 0.5;
+  --background: transparent;
+  --ion-background-color: transparent;
+  --ion-color-base: transparent;
+}

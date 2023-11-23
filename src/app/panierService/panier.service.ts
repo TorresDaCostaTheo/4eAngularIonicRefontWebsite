@@ -82,20 +82,18 @@ export class PanierService {
       }
     });
   }
-  requestRestaurants() {
-    this.restaurantService.getRestaurants().subscribe((restaurants) => {
-      this._restaurants.push(
-        ...restaurants.map((value, i) => {
-          const values: Restaurant = {
-            description: value.description,
-            name: value.name,
-            image: value.image,
-            adresse: value.adresse,
-          };
-          return values;
-        })
-      );
-      if (restaurants) {
+  requestRestaurants(){
+    this.restaurantService.getRestaurants().subscribe((restaurants)=>{
+      this._restaurants.push(...restaurants.map((value,i) =>{
+        const values:Restaurant = {
+          description : value.description,
+          name : value.name,
+          image : value.image,
+          adresse: value.adresse
+        }
+        return values;
+      }));
+      if(restaurants){
         this._restaurants = restaurants;
       } else {
         this._restaurants = [];
