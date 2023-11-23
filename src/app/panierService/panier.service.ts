@@ -44,6 +44,7 @@ export class PanierService {
               produit.quantity
             )
           );
+          this._callbackProduct();
         }
       });
     }
