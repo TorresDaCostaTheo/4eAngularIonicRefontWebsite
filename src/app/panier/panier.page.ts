@@ -34,7 +34,7 @@ export class PanierPage implements OnInit {
    * Envoie les produits au panier
    */
   async submitProduit() {
-    this.produitsCart = [];
+    this.deleteAllProduit();
     this.panierService._storage.set('produitsCart', []);
   }
   /**
@@ -49,17 +49,23 @@ export class PanierPage implements OnInit {
 
     // Sauvegarder le tableau mis à jour
     await this.panierService._storage.set('produitsCart', produitsCart);
+    console.table(this.produitsCart);
     const result = this.produitsCart.splice(
       this.produitsCart.findIndex((produit: Produit) => produit.id == id),
       1
     );
+    console.table(this.produitsCart);
     if (result) {
       this.sumTotal();
     }
   }
   async deleteAllProduit() {
+    console.table(this.produitsCart);
     await this.panierService._storage.set('produitsCart', []);
-    this.produitsCart = [];
+
+    this.produitsCart.splice(0, this.produitsCart.length);
+
+    console.table(this.produitsCart);
     this.sumTotal();
   }
   async confirmOrder(data: string | { empty: boolean }) {

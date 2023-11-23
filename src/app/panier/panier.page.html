@@ -1,4 +1,4 @@
-<app-header/>
+<app-header />
 <ion-content fullscreen="true" class="ion-padding">
   <ion-list class="cartList" *ngIf="produitsCart.length !== 0;else emptyCart">
     <ion-item color="primary" *ngFor="let produitCart of produitsCart">
@@ -8,12 +8,23 @@
         <ion-icon name="cart-outline" slot="end"></ion-icon>
       </ion-label>
       <ion-label>{{produitCart.price*produitCart.quantity }} $</ion-label>
-      <ion-button class="delete_button" color="danger" expand="fill" (click)="deleteProduit(produitCart.id)">
+      <ion-button
+        class="delete_button"
+        color="danger"
+        expand="fill"
+        (click)="deleteProduit(produitCart.id)"
+      >
         <ion-icon name="trash-bin-outline" size="large"></ion-icon>
       </ion-button>
     </ion-item>
   </ion-list>
-  <app-cart-summary [totalCart]="sum" [restaurants]="restaurants" slot="fixed"  (confirmCallback)="confirmOrder($event)"></app-cart-summary>
+
+  <app-cart-summary
+    [totalCart]="sum"
+    [restaurants]="restaurants"
+    slot="fixed"
+    (confirmCallback)="confirmOrder($event)"
+  ></app-cart-summary>
 </ion-content>
 <ng-template #emptyCart>
   <div class="cartList">

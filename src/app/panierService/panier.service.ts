@@ -11,7 +11,7 @@ import { RestaurantsService } from '../services/restaurants.service';
 })
 export class PanierService {
   public _storage: Storage = new Storage();
-  private _produits: Produit[] = [];
+  public _produits: Produit[] = [];
   private _restaurants: Restaurant[] = [];
   private _callbackProduct: () => void = () => {};
   constructor(
@@ -58,15 +58,13 @@ export class PanierService {
   set produit(cartProduct: { idProduit: number; quantity: number }) {
     const product = this.productService.getProduct(cartProduct.idProduit);
     product.then(async (product: Product | undefined) => {
-      let produitsCart = await this._storage.get('produitsCart');
-
       if (product) {
         const nouveauProduit = {
           id: product.id,
           quantity: cartProduct.quantity,
         };
-        produitsCart.push(nouveauProduit);
-        await this._storage.set('produitsCart', produitsCart);
+
+        console.table(this._produits);
 
         this._produits.push(
           new Produit(
@@ -76,13 +74,16 @@ export class PanierService {
             cartProduct.quantity
           )
         );
+        let produitsCart = await this._storage.get('produitsCart');
+        produitsCart.push(nouveauProduit);
+        await this._storage.set('produitsCart', produitsCart);
+        console.table(this._produits);
         this._callbackProduct();
       }
     });
   }
   requestRestaurants() {
     this.restaurantService.getRestaurants().subscribe((restaurants) => {
-      console.log(restaurants);
       this._restaurants.push(
         ...restaurants.map((value, i) => {
           const values: Restaurant = {
