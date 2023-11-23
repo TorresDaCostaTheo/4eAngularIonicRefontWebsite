@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ProduitsPage } from './produits/produits.page';
 
 const routes: Routes = [
   {
@@ -21,11 +22,13 @@ const routes: Routes = [
   {
     path: 'error',
     loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
-  },
+  },  
   {
     path: '**',
-    redirectTo: '/error',
-    pathMatch: 'full',
+    component: ProduitsPage,
+    data: {
+      isRedirected: true,
+    },
   }
 
 ];

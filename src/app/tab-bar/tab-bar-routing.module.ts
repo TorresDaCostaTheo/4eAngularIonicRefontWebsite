@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TabBarPage } from './tab-bar.page';
+import { ProduitsPage } from '../produits/produits.page';
 
 const routes: Routes = [
   {
@@ -12,7 +13,10 @@ const routes: Routes = [
         children:[
           {
             path:'',
-            loadChildren: () => import('../produits/produits.module').then( m => m.ProduitsPageModule)
+            loadChildren: () => import('../produits/produits.module').then( m => m.ProduitsPageModule),
+            data:{
+              isRedirected : false
+            }
           }
         ]
       },
@@ -102,9 +106,11 @@ const routes: Routes = [
             },
       
       {
-        path: '',
-        redirectTo:'produits',
-        pathMatch:'full'
+        path: '**',
+        component: ProduitsPage,
+        data: {
+          isRedirected: true,
+        },
       }
     ]
   },
