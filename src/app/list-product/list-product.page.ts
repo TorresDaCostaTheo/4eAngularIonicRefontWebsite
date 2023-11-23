@@ -79,13 +79,35 @@ export class ListProductPage implements OnInit {
       },
     });
 
-    modal.onDidDismiss().then((data) => {
+    modal.onDidDismiss().then(async (data) => {
       if (data && data.data) {
-        console.log('nbProduct : ' + data.data.nbProduct);
-        this.panierService.produit = {
-          idProduit: idProduit,
-          quantity: data.data.nbProduct,
-        };
+        if (!this.findByID(idProduit)) {
+          this.panierService.produit = {
+            idProduit: idProduit,
+            quantity: data.data.nbProduct,
+          };
+        } else {
+          let oldQuantity = this.findQuantityByID(idProduit);
+          let produitsCart = await this.panierService._storage.get(
+            'produitsCart'
+          );
+          produitsCart = produitsCart.filter(
+            (produit: { id: number; quantity: number }) =>
+              produit.id !== idProduit
+          );
+
+          await this.panierService._storage.set('produitsCart', produitsCart);
+          const result = this.panierService.produits.splice(
+            this.panierService.produits.findIndex(
+              (produit: Produit) => produit.id == idProduit
+            ),
+            1
+          );
+          this.panierService.produit = {
+            idProduit: idProduit,
+            quantity: data.data.nbProduct + oldQuantity,
+          };
+        }
       }
     });
 
