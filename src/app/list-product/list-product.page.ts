@@ -6,6 +6,7 @@ import { IonModal, ModalController } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { ProduitModalComponent } from '../produit-modal/produit-modal.component';
 import { PanierService } from '../panierService/panier.service';
+import { Produit } from '../models/produit';
 
 @Component({
   selector: 'app-list-product',
@@ -14,7 +15,7 @@ import { PanierService } from '../panierService/panier.service';
 })
 export class ListProductPage implements OnInit {
   @ViewChild(IonModal) modal!: IonModal;
-
+  cart: Produit[] = [];
   listProducts: Product[] = [];
   category: number = 0;
   message: string = 'test';
@@ -27,6 +28,7 @@ export class ListProductPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.cart = this.panierService.produits;
     let listProductsTemporary: Product[];
 
     this.route.queryParams.subscribe((params) => {
@@ -56,6 +58,18 @@ export class ListProductPage implements OnInit {
       }
     );
   }
+  findByID(id: number) {
+    let idFinded = this.cart.some((produit) => produit.id === id);
+    return idFinded;
+  }
+  findQuantityByID(id: number) {
+    let productFinded = this.cart.find((produit) => produit.id === id);
+    if (productFinded) {
+      return productFinded.quantity;
+    } else {
+      return 0;
+    }
+  }
 
   async openModal(idProduit: number) {
     const modal = await this.modalCtrl.create({
@@ -67,11 +81,11 @@ export class ListProductPage implements OnInit {
 
     modal.onDidDismiss().then((data) => {
       if (data && data.data) {
-        console.log('nbProduct : ' +data.data.nbProduct);
+        console.log('nbProduct : ' + data.data.nbProduct);
         this.panierService.produit = {
-          idProduit : idProduit,
-          quantity : data.data.nbProduct
-        }
+          idProduit: idProduit,
+          quantity: data.data.nbProduct,
+        };
       }
     });
 
