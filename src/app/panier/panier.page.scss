@@ -10,8 +10,16 @@ ion-item{
 }
 app-cart-summary{
   width: 100%;
-  bottom: 0;
-
+  // bottom: 0;
+}
+ion-content{
+  display: flex;
+  app-cart-summary{
+    flex-grow: 1;
+  }
+  .cartList{
+    flex-grow: 2;
+  }
 }
 .cartList{
   height: 70%;
