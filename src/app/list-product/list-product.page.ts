@@ -89,6 +89,9 @@ export class ListProductPage implements OnInit {
 
     modal.onDidDismiss().then(async (data) => {
       if (data && data.data) {
+        if (data.data.nbProduct <= 0) {
+          return;
+        }
         if (!this.findByID(idProduit)) {
           console.table(this.panierService._produits);
           this.panierService.produit = {
