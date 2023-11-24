@@ -74,7 +74,7 @@ export class ListProductPage implements OnInit {
     }
   }
 
-  async openModal(idProduit: number) {
+  async openModal(idProduit: number, nameProduct: string) {
     /* console.table(this.panierService._produits);
     console.log(typeof this.panierService._produits);
     console.table(this.panierService._produits);
@@ -83,6 +83,7 @@ export class ListProductPage implements OnInit {
       component: ProduitModalComponent,
       componentProps: {
         idProduit: idProduit,
+        nameProduct: nameProduct,
       },
     });
 

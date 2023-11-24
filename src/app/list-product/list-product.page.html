@@ -11,7 +11,7 @@
     <ion-list>
       <ion-item
         *ngFor="let product of listProducts"
-        (click)="openModal(product.id)"
+        (click)="openModal(product.id,product.name)"
       >
         <ion-thumbnail slot="start">
           <img alt="{{product.name}}" src="{{product.image}}" />

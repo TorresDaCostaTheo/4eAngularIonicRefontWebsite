@@ -9,11 +9,13 @@ import { ModalController, NavParams } from '@ionic/angular';
 export class ProduitModalComponent implements OnInit {
   idProduct: number;
   nbProduct!: number;
+  nameProduct: string;
   constructor(
     private navParams: NavParams,
     private modalCtrl: ModalController
   ) {
     this.idProduct = this.navParams.get('idProduct');
+    this.nameProduct = this.navParams.get('nameProduct');
   }
   ngOnInit() {}
 
