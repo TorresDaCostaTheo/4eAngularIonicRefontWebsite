@@ -23,14 +23,12 @@ export class DateCalculatorComponent  implements OnInit {
     const result =this.openDayDate.sort((a,b)=>{
       if(a< today.getDay()){
         a += 7;
-      }else if(b < today.getDay()){
+      }
+      if(b< today.getDay()){
         b += 7;
       }
       const diffA = Math.abs(a-today.getDay());
       const diffB = Math.abs(b-today.getDay());
-      if(diffA ===diffB || diffA > diffB){
-        return b-a;
-      }
       return diffA-diffB;
     });
     let day = today.getDay();
