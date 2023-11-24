@@ -118,6 +118,5 @@ export class PanierPage implements OnInit {
       (sum: number, produit: Produit) => sum + produit.price * produit.quantity,
       0
     );
-    console.log(this.sum);
   }
 }

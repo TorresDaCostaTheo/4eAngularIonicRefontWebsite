@@ -4,8 +4,9 @@
   align-items: center;
 }
 ion-select {
-  color : var(--ion-color-secondary);
   --placeholder-color: var(--ion-color-secondary);
+  --background	: var(--ion-background-color);
+
 }
 .total_display{
   display: flex;
