@@ -10,14 +10,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProduitsPage implements OnInit {
   constructor(
-    private router: Router, 
+    private router: Router,
     private toastController: ToastController,
     private route: ActivatedRoute
     ) {}
 
     ngOnInit() {
       const isRedirected = this.route.snapshot.data['isRedirected'];
-      console.log(isRedirected)
       if (isRedirected) {
         this.presentToast();
       }

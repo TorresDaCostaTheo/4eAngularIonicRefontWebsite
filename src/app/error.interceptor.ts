@@ -13,7 +13,7 @@ export class ErrorInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse): Observable<HttpEvent<any>> => {
         console.error('Erreur HTTP interceptée :', error);
         if (error.error instanceof ErrorEvent) {
-          // Erreur côté client 
+          // Erreur côté client
           console.error('Erreur côté client :', error.error.message);
         } else {
           // Erreur côté serveur
@@ -25,7 +25,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         }
 
         // Passer l'erreur au gestionnaire d'erreurs suivant
-        return throwError(error);
+        return throwError(() => new Error());
       })
     );
   }
@@ -33,9 +33,9 @@ export class ErrorInterceptor implements HttpInterceptor {
   private async showToast(message: string) {
     const toast = await this.toastController.create({
       message,
-      duration: 1500, 
-      position: 'bottom', 
-      color: 'danger', 
+      duration: 1500,
+      position: 'bottom',
+      color: 'danger',
     });
     await toast.present();
   }
